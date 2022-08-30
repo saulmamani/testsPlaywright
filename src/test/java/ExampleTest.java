@@ -18,23 +18,6 @@ public class ExampleTest {
         page.click("input[type='submit']");
         return page;
     }
-    
-    @Test @Ignore
-    public void testInBrowse(){
-        //levantando el browse
-        try(Playwright playwright = Playwright.create()){
-            Page page = login(playwright);
-
-            //ordenando con el select
-            page.selectOption("select.product_sort_container", "hilo");
-            String productName = page.innerText("a#item_1_title_link div");
-            System.out.println(productName);
-
-            //verificando si estoy en la pagina principal
-            boolean isInMainPage = page.isVisible("span.title");
-            Assert.assertTrue(isInMainPage);
-        }
-    }
 
     //1. Comprobar que el producto Sauce Labs Onesie existe y que tenga un costo de 7.99
     @Test
